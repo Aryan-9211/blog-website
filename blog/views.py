@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import BlogForm
 from .models import BlogModel
+from django.contrib.auth import logout as auth_logout
 
 def home(request):
     context = {'blogs' : BlogModel.objects.all()}
@@ -91,5 +92,6 @@ def blog_update(request, title):
     
     return render(request, 'update_blog.html', context)
 
-
-
+def logout(request):
+    auth_logout(request)
+    return redirect('/')
