@@ -30,15 +30,14 @@
       id="theme-stylesheet"
     />
     <!-- Custom stylesheet - for your changes-->
+    {% comment %}
     <link rel="stylesheet" href="/static/css/custom.css" />
+    {% endcomment %}
     <script src="/static/js/main.js"></script>
   </head>
-
 
   <body>
     <input type="hidden" id="csrf" value="{{csrf_token}}" />
     {% block body %} {% endblock %}
-
-    
   </body>
 </html>
