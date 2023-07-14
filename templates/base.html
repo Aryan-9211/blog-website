@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Directory Theme by Bootstrapious</title>
+    <title>Blog Website</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="all,follow" />
@@ -31,9 +31,14 @@
     />
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="/static/css/custom.css" />
-    <script src="/media/js/main.js"></script>
+    <script src="/static/js/main.js"></script>
   </head>
+
+
   <body>
+    <input type="hidden" id="csrf" value="{{csrf_token}}" />
     {% block body %} {% endblock %}
+
+    
   </body>
 </html>
