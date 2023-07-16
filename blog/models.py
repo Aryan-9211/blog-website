@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class BlogModel(models.Model):
     title = models.CharField(max_length=1000)
     content = FroalaField()
-    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='static/images')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

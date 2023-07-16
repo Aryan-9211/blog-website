@@ -41,29 +41,14 @@
   <!-- /Navbar -->
 </header>
 
-<section class="position-relative py-6">
+<div>
   <img
-    class="bg-image"
-    src="https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    style="width: 100vw; margin: 0; padding: 0"
+    src="https://picsum.photos/seed/picsum/1500/400"
     alt=""
   />
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="bg-white rounded-lg shadow p-5">
-          <strong
-            class="text-uppercase text-secondary d-inline-block mb-2 text-sm"
-            >Featured</strong
-          >
-          <h2 class="mb-3">Escape the city today</h2>
-          <a class="btn btn-link p-0" href="post.html"
-            >Continue reading <i class="fa fa-long-arrow-alt-right"></i
-          ></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
+
 <section class="py-6">
   <div class="container">
     <div class="row mb-5">
@@ -72,10 +57,7 @@
       <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
         <div class="card shadow border-0 h-100">
           <a href="{% url 'blog_detail' blog.title %}"
-            ><img
-              class="img-fluid card-img-top"
-              src="/static/images/{{blog.image}}"
-              alt="..."
+            ><img class="img-fluid card-img-top" src="{{blog.image}}" alt="..."
           /></a>
           <div class="card-body">
             <a
@@ -89,9 +71,7 @@
             <p class="text-gray-500 text-sm my-3">
               <i class="far fa-clock mr-2"></i>{{blog.created_at}}
             </p>
-            <p class="my-2 text-muted text-sm">
-              Pellentesque habitant morbi tristique senectus.
-            </p>
+            <p class="my-2 text-muted text-sm">CLICK TO READ MORE...</p>
             <a
               class="btn btn-link pl-0"
               href="{% url 'blog_detail' blog.title %}"
@@ -102,7 +82,23 @@
       </div>
       {% endfor %}
     </div>
-
-    {% endblock %}
   </div>
 </section>
+
+<footer>
+  <div
+    style="
+      width: 100vw;
+      margin: 0;
+      padding: 15px;
+      text-align: center;
+      background-color: powderblue;
+    "
+  >
+    <div class="footer-content">
+      <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}

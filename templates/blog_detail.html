@@ -13,7 +13,8 @@
     </div>
     <div class="row">
       <div class="col-xl-8 col-lg-10 mx-auto">
-        <img src="{{ blog_obj.image }}" alt="Blog Image" />
+        {% load static %} print(blog_obj.image)
+        <img src="{{blog_obj.image }}" alt="Blog Image" />
       </div>
     </div>
   </div>
