@@ -7,18 +7,16 @@
         <div class="form-validate">
           <div id="loginForm">
             <div class="form-group">
-              <label class="form-label" for="loginUsername">
-                Email Address
-              </label>
+              <label class="form-label" for="loginUsername"> User Name </label>
               <input
                 class="form-control"
                 name="loginUsername"
+                placeholder="username"
                 id="loginUsername"
-                type="email"
-                placeholder="name@address.com"
+                type="text"
                 autocomplete="off"
                 required
-                data-msg="Please enter your email"
+                data-msg="Please enter your username"
               />
             </div>
 
@@ -51,15 +49,10 @@
           <p class="text-center">
             <small class="text-muted text-center"
               >Don't have an account yet?
-              <a href="register/">Sign Up </a></small
+              <a href="{% url 'register_view' %}">Sign Up </a></small
             >
           </p>
         </div>
-
-        <a class="close-absolute mr-md-5 mr-xl-6 pt-5" href="index-2.html">
-          <svg class="svg-icon w-3rem h-3rem">
-            <use xlink:href="#close-1"></use></svg
-        ></a>
       </div>
     </div>
 
