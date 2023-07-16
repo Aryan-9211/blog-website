@@ -55,34 +55,40 @@ def add_blog(request):
 def blog_delete(request, id):
     try:
         blog_obj = BlogModel.objects.get(id=id)
+        
+        if blog_obj.user != request.user:
+            return redirect('/')
+
         blog_obj.delete()
     except Exception as e:
         print(e)
     return redirect('/see-blog/')
 
 
-
 def blog_update(request, title):
     context = {}
     try:
         blog_obj = BlogModel.objects.get(title=title)
+
+        if blog_obj.user != request.user:
+            return redirect('/')
+
         initial_dict = {'content': blog_obj.content}
         form = BlogForm(initial=initial_dict)
 
         if request.method == 'POST':
-            form = BlogForm(request.POST, request.FILES)
-            if form.is_valid():
-                image = form.cleaned_data['image']
-                updated_title = request.POST.get('title')
-                user = request.user
-                content = form.cleaned_data['content']
-                
-                blog_obj.title = updated_title
-                blog_obj.content = content
-                blog_obj.image = image
-                blog_obj.save()
-                
-                return redirect('/add-blog/')
+            form = BlogForm(request.POST)
+        if form.is_valid():
+            image = request.FILES['image']
+            title = request.POST.get('title')
+            content = form.cleaned_data['content']
+            
+            blog_obj.title = title
+            blog_obj.content = content
+            blog_obj.image = image
+            blog_obj.save()
+
+            return redirect('/add-blog/')
 
         context['blog_obj'] = blog_obj 
         context['form'] = form
