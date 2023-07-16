@@ -2,20 +2,27 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-xl-8 col-lg-10 mx-auto">
+      <div class="col-xl-8 col-lg-10 mx-auto mt-5" style="text-align: center">
         <h2>{{ blog_obj.title }}</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-xl-8 col-lg-10 mx-auto">
-        <div class="text-content">{{ blog_obj.content }}</div>
+      <div class="col-xl-8 col-lg-10 mx-auto mt-5" style="text-align: center">
+        <div class="text-content">{{ blog_obj.content|safe }}</div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xl-8 col-lg-10 mx-auto">
-        {% load static %} print(blog_obj.image)
-        <img src="{{blog_obj.image }}" alt="Blog Image" />
+      <div class="col-xl-8 col-lg-10 mx-auto" style="text-align: center">
+        <img
+          style="height: 40vh; width: 40vw"
+          src="{{ blog_obj.image.url }}"
+          alt="Blog Image"
+        />
       </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-8 col-lg-10 mx-auto mt-5" style="text-align: center">
+        <p>{{ blog_obj.user.username}}</p>
     </div>
   </div>
 </section>

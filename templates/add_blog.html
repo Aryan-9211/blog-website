@@ -1,7 +1,4 @@
 {% extends "base.html" %} {% block body %}
-<head>
-  <link rel="stylesheet" href="/static/css/add_blog.css" />
-</head>
 
 <div class="container mt-5">
   <a href="{% url 'see_blog' %}"
@@ -29,6 +26,7 @@
         <input type="file" name="image" class="form-control" />
       </div>
     </div>
+
     <button type="submit" class="btn btn-primary mt-5">Create Blog</button>
   </form>
 </div>

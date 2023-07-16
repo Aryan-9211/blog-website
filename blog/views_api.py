@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
 # LOGIN VIEW
@@ -23,6 +23,7 @@ class LoginView(APIView):
             user = authenticate(username=data['username'], password=data['password'])
 
             if user is not None:
+                login(request, user)
                 response['status'] = 200
                 response['message'] = 'Welcome'
             else:
@@ -64,6 +65,7 @@ class RegisterView(APIView):
             user_obj.set_password(data['password'])
             user_obj.save()
             
+            login(request, user)
             response['message'] = 'User created successfully'
             response['status'] = 200
 
